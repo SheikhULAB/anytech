@@ -71,7 +71,7 @@ export default function HeroSection() {
         >
           <div className="relative w-full max-w-lg transform hover:scale-105 transition duration-500 ease-in-out">
             <Image 
-              src="/assets/backgrounds/girl1.avif" 
+              src="/Assets/backgrounds/girl1.avif" 
               alt="Businesswoman holding a phone"
               width={600}
               height={600}
