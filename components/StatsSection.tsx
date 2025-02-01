@@ -1,32 +1,40 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 
 const StatsSection: React.FC = () => {
   return (
-    <section className="bg-white py-12 px-6">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-sm font-semibold text-blue-600 tracking-wider mb-6">
+    <section className="bg-gradient-to-b from-blue-50 to-white py-16 px-6">
+      <div className="max-w-6xl mx-auto text-center">
+        <motion.h2
+          className="text-sm font-semibold text-blue-600 tracking-widest mb-8 uppercase"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           TRUSTED BY THE BEST
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          {/* Stat 1 */}
-          <div>
-            <p className="text-4xl font-bold text-blue-600"> &gt;20 </p>
-            <p className="text-gray-700 text-sm mt-2">Years of Experience</p>
-          </div>
+        </motion.h2>
 
-          {/* Stat 2 */}
-          <div>
-            <p className="text-4xl font-bold text-blue-600">40+</p>
-            <p className="text-gray-700 text-sm mt-2">Financial Institutions</p>
-          </div>
-
-          {/* Stat 3 */}
-          <div>
-            <p className="text-4xl font-bold text-blue-600">&gt;200m</p>
-            <p className="text-gray-700 text-sm mt-2">Customers Each</p>
-          </div>
+        {/* Animated Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {[
+            { value: ">20", label: "Years of Experience" },
+            { value: "40+", label: "Financial Institutions" },
+            { value: ">200m", label: "Customers Served" },
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              className="bg-white shadow-lg rounded-xl p-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <p className="text-5xl font-bold text-blue-600">{stat.value}</p>
+              <p className="text-gray-700 text-lg mt-3">{stat.label}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

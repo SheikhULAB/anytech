@@ -8,8 +8,13 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-blue-600 text-white px-6 py-4">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <header className="relative bg-blue-600 text-white px-6 py-4">
+      {/* Background Image */}
+      <div className="absolute inset-0 bg-cover bg-center z-[-1]" 
+           style={{ backgroundImage: "url('/Assets/backgrounds/WaveLinesDesktop1.svg')" }} 
+      ></div>
+
+      <div className="max-w-7xl mx-auto relative z-10 flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-bold flex items-center">
           <span className="text-white">AY</span>
@@ -21,8 +26,9 @@ export default function Header() {
           <div className="relative group">
             <button className="flex items-center gap-1">Solutions <ChevronDown size={16} /></button>
             <div className="absolute hidden group-hover:block bg-white text-black shadow-lg p-2 rounded w-40">
-              <Link href="#" className="block px-4 py-2 hover:bg-gray-200">Solution 1</Link>
-              <Link href="#" className="block px-4 py-2 hover:bg-gray-200">Solution 2</Link>
+              <Link href="#" className="block px-4 py-2 hover:bg-gray-200">AnyCaaS</Link>
+              <Link href="#" className="block px-4 py-2 hover:bg-gray-200">AnyBaaS</Link>
+              <Link href="#" className="block px-4 py-2 hover:bg-gray-200">AnyPaaS</Link>
             </div>
           </div>
           <Link href="#" className="hover:underline">Services</Link>

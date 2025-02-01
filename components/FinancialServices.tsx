@@ -27,7 +27,7 @@ const FinancialServices = () => {
       {/* Image Section */}
       <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
         <Image
-          src="/finance-image.jpg" // Replace with the correct path
+          src="/Assets/backgrounds/girl3.avif" // Replace with the correct path
           alt="Financial Services"
           width={500}
           height={300}
