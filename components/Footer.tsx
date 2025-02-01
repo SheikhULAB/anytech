@@ -1,46 +1,44 @@
 import Link from "next/link";
-import { Facebook, Twitter, Linkedin } from "lucide-react";
 
 const Footer = () => {
+  const navItems = ["Our Solutions", "AnyCaaS", "AnyBaaS", "AnyPaaS"];
+
   return (
-    <footer className="bg-[#001F4D] text-white">
+    <footer className="bg-gradient-to-t from-[#001F4D] to-[#001A3D] text-white">
       {/* Main Section */}
-      <div className="container mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center border-b border-blue-900">
         {/* Logo & Branding */}
-        <div className="text-2xl font-bold">ANYTECH</div>
+        <div className="text-3xl font-bold tracking-widest mb-8 md:mb-0">
+          ANYTECH
+        </div>
 
         {/* Navigation Links */}
-        <nav className="flex flex-wrap justify-center md:justify-start space-x-6 text-cyan-400">
-          {["Our Solutions", "AnyCaaS", "AnyBaaS", "AnyPaaS"].map((item, index) => (
-            <Link href="#" key={index}>
-              <span className="hover:text-white transition-colors duration-300 cursor-pointer">
-                {item}
-              </span>
-            </Link>
+        <nav className="flex flex-wrap justify-center md:justify-start items-center gap-4">
+          {navItems.map((item, index) => (
+            <div key={index} className="flex items-center">
+              <Link href="#">
+                <span className="text-cyan-400 hover:text-white transition-colors duration-300 cursor-pointer">
+                  {item}
+                </span>
+              </Link>
+              {index < navItems.length - 1 && (
+                <span className="mx-2 text-cyan-400">|</span>
+              )}
+            </div>
           ))}
         </nav>
-
-        {/* Social Media Icons */}
-        <div className="flex space-x-4 mt-4 md:mt-0">
-          <a href="#" className="text-cyan-400 hover:text-white transition-all duration-300">
-            <Facebook size={20} />
-          </a>
-          <a href="#" className="text-cyan-400 hover:text-white transition-all duration-300">
-            <Twitter size={20} />
-          </a>
-          <a href="#" className="text-cyan-400 hover:text-white transition-all duration-300">
-            <Linkedin size={20} />
-          </a>
-        </div>
       </div>
 
       {/* Bottom Section */}
-      <div className="bg-[#001A3D] text-center py-3 text-sm text-gray-400">
-        <p>
-          © {new Date().getFullYear()} <span className="text-blue-400">All rights reserved.</span> Any Technology Pte Ltd.
+      <div className="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-gray-400 flex flex-col md:flex-row justify-between items-center">
+        <p className="mb-2 md:mb-0">
+          © {new Date().getFullYear()}{" "}
+          <span className="text-blue-400">All rights reserved.</span> Any Technology Pte Ltd.
         </p>
         <Link href="#">
-          <span className="text-blue-400 hover:underline cursor-pointer">Privacy Policy</span>
+          <span className="text-blue-400 hover:underline cursor-pointer">
+            Privacy Policy
+          </span>
         </Link>
       </div>
     </footer>
